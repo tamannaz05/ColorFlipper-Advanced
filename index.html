@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Changer</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .main-div {
+            text-align: center;
+        }
+        button {
+            cursor: pointer;
+            padding: 10px;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-div">
+        <h1>BACKGROUND COLOUR : <span id="whichColour">#FFFFFF</span></h1>
+        <div class="btn-container">
+            <button onclick="changeColour()">Click to change colour</button>
+        </div>
+    </div>
+
+    <script>
+        function changeColour()
+        {
+            let colour = "#";
+            let characters = "0123456789ABCDEF";
+            let l = characters.length;
+            for(let i=0 ; i<6; i++)
+            {
+                colour += characters[Math.floor(Math.random() * l)];
+            }
+            document.body.style.backgroundColor = colour;
+            document.getElementById("whichColour").innerText = colour;
+        } 
+    </script>
+</body>
+</html>
